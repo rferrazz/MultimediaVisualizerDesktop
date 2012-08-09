@@ -11,10 +11,11 @@ INCLUDEPATH += $$PWD
 
 
 win32 {
-    LIBS+=-ldnssd
-    # Add your path to bonjour here.
-    LIBPATH = C:/Temp/mDNSResponder-107.6/mDNSWindows/DLL/Debug
-    INCLUDEPATH += c:/Temp/mDNSResponder-107.6/mDNSShared
+    LIBS+=-L"C:/Program Files/Bonjour SDK/Lib/Win32" \
+        -ldnssd
+
+    INCLUDEPATH += "C:/Program Files/Bonjour SDK/Include" \
+
 } else {
     LIBS+=-ldns_sd
 }
