@@ -22,6 +22,20 @@ Rectangle {
         anchors.fill: parent
         opacity: 0
     }
+    MouseArea{
+        id: mouse
+        anchors.fill: parent
+        onDoubleClicked: {
+            if(mainWindow.fullScreen){
+                console.log("going normal:"+ mainWindow.fullScreen)
+                mainWindow.showNormal();
+            }else{
+                console.log("going fullscreen");
+                mainWindow.showFullScreen();
+            }
+        }
+    }
+
     states: [
         State {
             name: "recivingState"

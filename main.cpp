@@ -1,19 +1,17 @@
 #include <QtGui/QApplication>
 #include <QDeclarativeContext>
 #include <QtDeclarative/QtDeclarative>
-#include "qmlapplicationviewer.h"
+#include "mainwindow.h"
 #include "imagereciver.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QScopedPointer<QApplication> app(createApplication(argc, argv));
+    QApplication *app = new QApplication(argc, argv);
 
     qmlRegisterType<ImageReciver>("QmlSharing", 1, 0, "ImageSharingClient");
 
-    QmlApplicationViewer viewer;
-    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationAuto);
-    viewer.setMainQmlFile(QLatin1String("qml/MultimediaVisualizerDesktop/main.qml"));
-    viewer.showExpanded();
+    MainWindow win(QUrl("qrc:/qml/main.qml"));
+    win.show();
 
     return app->exec();
 }
