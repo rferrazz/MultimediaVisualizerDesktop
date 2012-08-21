@@ -6,7 +6,19 @@ Rectangle {
     width: 800
     height: 600
     color: "black"
+    focus: true
     property bool reciving: false
+
+    function switchFullScreen(){
+        if(mainWindow.fullScreen){
+            console.log("going normal:"+ mainWindow.fullScreen)
+            mainWindow.showNormal();
+        }else{
+            console.log("going fullscreen");
+            mainWindow.showFullScreen();
+        }
+    }
+
     ImageSharingClient{
         anchors.fill: parent
         onStartReciving: {
@@ -26,13 +38,13 @@ Rectangle {
         id: mouse
         anchors.fill: parent
         onDoubleClicked: {
-            if(mainWindow.fullScreen){
-                console.log("going normal:"+ mainWindow.fullScreen)
-                mainWindow.showNormal();
-            }else{
-                console.log("going fullscreen");
-                mainWindow.showFullScreen();
-            }
+            switchFullScreen();
+        }
+    }
+
+    Keys.onPressed: {
+        if(event.key == Qt.Key_F11){
+            switchFullScreen();
         }
     }
 
