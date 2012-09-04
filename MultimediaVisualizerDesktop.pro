@@ -33,14 +33,12 @@ unix {
     target.path = /usr/bin
     data.path = /usr/share/${TARGET}/data
     data.files = data/*
-    desktopfile.files += data/${TARGET}.desktop
+    desktopfile.files += ${TARGET}.desktop
     desktopfile.path = /usr/share/applications/
     icon.files += ${TARGET}.svg
     icon.path = /usr/share/${TARGET}/icon
     INSTALLS += data target desktopfile icon
     export(target.path)
-    export(data.path)
-    export(data.files)
     export(desktopfile.files)
     export(desktopfile.path)
     export(icon.files)
