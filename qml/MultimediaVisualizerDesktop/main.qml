@@ -11,8 +11,10 @@ Rectangle {
 
     function switchFullScreen(){
         if(mainWindow.fullScreen){
+<<<<<<< HEAD
             mainWindow.showNormal();
         }else{
+>>>>>>> b5928b49194dbb73384d63f568fc0d52a70cae98
             mainWindow.showFullScreen();
         }
     }
@@ -33,6 +35,10 @@ Rectangle {
         opacity: 0
     }
     MouseArea{
+<<<<<<< HEAD
+=======
+        id: mouse
+>>>>>>> b5928b49194dbb73384d63f568fc0d52a70cae98
         anchors.fill: parent
         onDoubleClicked: {
             switchFullScreen();
