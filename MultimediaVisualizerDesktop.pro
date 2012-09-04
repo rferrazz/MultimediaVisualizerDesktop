@@ -12,9 +12,6 @@ SOURCES += main.cpp \
     imageserver.cpp \
     mainwindow.cpp
 
-<<<<<<< HEAD
-
->>>>>>> b5928b49194dbb73384d63f568fc0d52a70cae98
 include(QBonjourServer/bonjourserver.pri)
 
 HEADERS += \
@@ -31,7 +28,6 @@ OTHER_FILES += \
 RESOURCES += \
     resources.qrc
 
-<<<<<<< HEAD
 unix {
     target.path = /usr/bin
     data.path = /usr/share/multimediavisualizer/data
@@ -40,5 +36,4 @@ unix {
     INSTALLS += target
 }
 
->>>>>>> b5928b49194dbb73384d63f568fc0d52a70cae98
 
