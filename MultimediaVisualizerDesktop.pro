@@ -31,15 +31,16 @@ RESOURCES += \
 
 unix {
     target.path = /usr/bin
-    data.path = /usr/share/multimediavisualizer/data
+    data.path = /usr/share/${TARGET}/data
     data.files = data/*
-    shortcutfiles.files += data/MultimediaVisualizer.desktop
-    shortcutfiles.path = /usr/share/applications/
-    icon.files += MultimediaVisualizer.svg
-    icon.path = /usr/share/multimediavisualizer/icon
+    desktopfile.files += data/${TARGET}.desktop
+    desktopfile.path = /usr/share/applications/
+    icon.files += ${TARGET}.svg
+    icon.path = /usr/share/${TARGET}/icon
     INSTALLS += data
     INSTALLS += target
-    INSTALLS += shortcutfiles
+    INSTALLS += desktopfile
+    INSTALLS += icon
 }
 
 
