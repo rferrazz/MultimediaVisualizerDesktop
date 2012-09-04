@@ -37,10 +37,15 @@ unix {
     desktopfile.path = /usr/share/applications/
     icon.files += ${TARGET}.svg
     icon.path = /usr/share/${TARGET}/icon
-    INSTALLS += data
-    INSTALLS += target
-    INSTALLS += desktopfile
-    INSTALLS += icon
+    INSTALLS += data target desktopfile icon
+    export(target.path)
+    export(data.path)
+    export(data.files)
+    export(desktopfile.files)
+    export(desktopfile.path)
+    export(icon.files)
+    export(icon.path)
+    export(INSTALLS)
 }
 
 
