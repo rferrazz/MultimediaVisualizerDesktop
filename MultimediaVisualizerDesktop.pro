@@ -23,7 +23,8 @@ HEADERS += \
 FORMS +=
 
 OTHER_FILES += \
-    qml/MultimediaVisualizerDesktop/main.qml
+    qml/MultimediaVisualizerDesktop/main.qml \
+    MultimediaVisualizer.desktop
 
 RESOURCES += \
     resources.qrc
@@ -32,8 +33,13 @@ unix {
     target.path = /usr/bin
     data.path = /usr/share/multimediavisualizer/data
     data.files = data/*
+    shortcutfiles.files += data/MultimediaVisualizer.desktop
+    shortcutfiles.path = /usr/share/applications/
+    icon.files += MultimediaVisualizer.svg
+    icon.path = /usr/share/multimediavisualizer/icon
     INSTALLS += data
     INSTALLS += target
+    INSTALLS += shortcutfiles
 }
 
 
