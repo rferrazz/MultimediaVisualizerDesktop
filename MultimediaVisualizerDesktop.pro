@@ -30,20 +30,21 @@ RESOURCES += \
     resources.qrc
 
 unix {
-    target.path = /usr/bin
-    data.path = /usr/share/${TARGET}/data
+#VARIABLES
+    isEmpty(PREFIX) {
+        PREFIX = /usr
+    }
+    BINDIR = $$PREFIX/bin
+    DATADIR =$$PREFIX/share
+    DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
+    INSTALLS += data target desktopfile icon
+    target.path = $$BINDIR
+    data.path = $$DATADIR/${TARGET}/data
     data.files = data/*
     desktopfile.files += ${TARGET}.desktop
-    desktopfile.path = /usr/share/applications/
+    desktopfile.path = $$DATADIR/applications/
     icon.files += ${TARGET}.svg
-    icon.path = /usr/share/${TARGET}/icon
-    INSTALLS += data target desktopfile icon
-    export(target.path)
-    export(desktopfile.files)
-    export(desktopfile.path)
-    export(icon.files)
-    export(icon.path)
-    export(INSTALLS)
+    icon.path = $$DATADIR/${TARGET}/icon
 }
 
 
