@@ -1,0 +1,13 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.5.0
+Type=Application
+Terminal=false
+Name=MultimediaVisualizer
+Exec=/usr/bin/multimediavisualizer
+Icon=MultimediaVisualizerDesktop
+X-Window-Icon=
+X-HildonDesk-ShowInToolbar=true
+X-Osso-Type=application/x-executable
+Name[it]=MultimediaVisualizer.desktop
