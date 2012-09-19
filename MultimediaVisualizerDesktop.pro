@@ -5,6 +5,7 @@ QT += network declarative
 
 TARGET = MultimediaVisualizer
 TEMPLATE = app
+CONFIG = windows
 
 SOURCES += main.cpp \
     imagereciver.cpp \
@@ -13,22 +14,6 @@ SOURCES += main.cpp \
     mainwindow.cpp
 
 include(QBonjourServer/bonjourserver.pri)
-
-HEADERS += \
-    imagereciver.h \
-    serverthread.h \
-    imageserver.h \
-    mainwindow.h
-
-FORMS +=
-
-OTHER_FILES += \
-    qml/MultimediaVisualizerDesktop/main.qml \
-    MultimediaVisualizer.desktop
-
-RESOURCES += \
-    resources.qrc
-
 unix {
 #VARIABLES
     isEmpty(PREFIX) {
@@ -46,5 +31,20 @@ unix {
     icon.files += ${TARGET}.svg
     icon.path = $$DATADIR/${TARGET}/icon
 }
+
+HEADERS += \
+    imagereciver.h \
+    serverthread.h \
+    imageserver.h \
+    mainwindow.h
+
+FORMS +=
+
+OTHER_FILES += \
+    qml/MultimediaVisualizerDesktop/main.qml \
+    MultimediaVisualizer.desktop
+
+RESOURCES += \
+    resources.qrc
 
 
