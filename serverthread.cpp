@@ -1,5 +1,7 @@
 #include "serverthread.h"
 
+#include <QDataStream>
+
 ServerThread::ServerThread(int id, QObject *parent) :
     QThread(parent)
 {

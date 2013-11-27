@@ -1,17 +1,15 @@
-#include <QtGui/QApplication>
-#include <QDeclarativeContext>
-#include <QtDeclarative/QtDeclarative>
-#include "mainwindow.h"
 #include "imagereciver.h"
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
+#include <QtGui/QGuiApplication>
+#include <QQmlApplicationEngine>
+
+int main(int argc, char *argv[])
 {
-    QApplication *app = new QApplication(argc, argv);
+    QGuiApplication app(argc, argv);
 
-    qmlRegisterType<ImageReciver>("QmlSharing", 1, 0, "ImageSharingClient");
+    qmlRegisterType<ImageReciver>("ImageReciver", 1, 0, "ImageReciver");
 
-    MainWindow win(QUrl("qrc:/qml/main.qml"));
-    win.show();
+    QQmlApplicationEngine appEngine(QUrl("qrc:/qml/main.qml"));
 
-    return app->exec();
+    return app.exec();
 }

@@ -1,9 +1,8 @@
 #include "imagereciver.h"
 
-ImageReciver::ImageReciver(QDeclarativeItem *parent) :
-    QDeclarativeItem(parent)
+ImageReciver::ImageReciver(QQuickPaintedItem *parent) :
+    QQuickPaintedItem(parent)
 {
-    setFlag(ItemHasNoContents, false);
     server = new ImageServer(this);
     server->listen(QHostAddress::Any, 6017);
     serviceRegister = new BonjourServiceRegister(this);
@@ -23,7 +22,7 @@ void ImageReciver::parseImage(QImage image){
     update();
 }
 
-void ImageReciver::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *){
+void ImageReciver::paint(QPainter *painter){
     QSize imageSize = lastImage.size();
     imageSize.scale(boundingRect().width(), boundingRect().height(), Qt::KeepAspectRatio);
     QRect ImgBoundingRect((boundingRect().width()/2)-(imageSize.width()/2),

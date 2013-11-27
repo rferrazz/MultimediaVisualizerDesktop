@@ -1,50 +1,33 @@
-# Additional import path used to resolve QML modules in Creator's code model
-QML_IMPORT_PATH =
+QT += core quick
 
-QT += network declarative
+# Add more folders to ship with the application, here
+folder_01.source = qml/MultimediaVisualizer
+folder_01.target = qml
+DEPLOYMENTFOLDERS = folder_01
 
-TARGET = MultimediaVisualizer
-TEMPLATE = app
-CONFIG = windows
+# If your application uses the Qt Mobility libraries, uncomment the following
+# lines and add the respective components to the MOBILITY variable.
+# CONFIG += mobility
+# MOBILITY +=
 
-SOURCES += main.cpp \
-    imagereciver.cpp \
-    serverthread.cpp \
-    imageserver.cpp \
-    mainwindow.cpp
+# Installation path
+# target.path =
 
 include(QBonjourServer/bonjourserver.pri)
-unix {
-#VARIABLES
-    isEmpty(PREFIX) {
-        PREFIX = /usr
-    }
-    BINDIR = $$PREFIX/bin
-    DATADIR =$$PREFIX/share
-    DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
-    INSTALLS += data target desktopfile icon
-    target.path = $$BINDIR
-    data.path = $$DATADIR/${TARGET}/data
-    data.files = data/*
-    desktopfile.files += ${TARGET}.desktop
-    desktopfile.path = $$DATADIR/applications/
-    icon.files += ${TARGET}.svg
-    icon.path = $$DATADIR/${TARGET}/icon
-}
+
+SOURCES += main.cpp \
+    serverthread.cpp \
+    imageserver.cpp \
+    imagereciver.cpp
 
 HEADERS += \
-    imagereciver.h \
     serverthread.h \
     imageserver.h \
-    mainwindow.h
-
-FORMS +=
-
-OTHER_FILES += \
-    qml/MultimediaVisualizerDesktop/main.qml \
-    MultimediaVisualizer.desktop
+    imagereciver.h
 
 RESOURCES += \
-    resources.qrc
+    qml.qrc
 
+OTHER_FILES += \
+    qml/MultimediaVisualizer/main.qml
 

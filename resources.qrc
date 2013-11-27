@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/qml">
-        <file alias="main.qml">qml/MultimediaVisualizerDesktop/main.qml</file>
-    </qresource>
-</RCC>

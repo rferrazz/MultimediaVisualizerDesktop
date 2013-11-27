@@ -1,20 +1,21 @@
 #ifndef IMAGERECIVER_H
 #define IMAGERECIVER_H
 
-#include <QDeclarativeItem>
+#include <QQuickPaintedItem>
 #include <QPainter>
 #include "imageserver.h"
 #include "QBonjourServer/bonjourserviceregister.h"
 
-class ImageReciver : public QDeclarativeItem
+class ImageReciver : public QQuickPaintedItem
 {
     Q_OBJECT
     Q_DISABLE_COPY(ImageReciver)
 public:
-    explicit ImageReciver(QDeclarativeItem *parent = 0);
+    explicit ImageReciver(QQuickPaintedItem *parent = 0);
     ~ImageReciver();
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *);
-    
+
+    void paint(QPainter *painter);
+
 signals:
     void startReciving();
     void imageReady();
@@ -28,6 +29,5 @@ private:
     QImage lastImage;
     
 };
-QML_DECLARE_TYPE(ImageReciver)
 
 #endif // IMAGERECIVER_H
