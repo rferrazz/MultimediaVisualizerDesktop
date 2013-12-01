@@ -3,7 +3,7 @@
 
 #include <QTcpServer>
 #include <QImage>
-#include "serverthread.h"
+#include <QTcpSocket>
 
 class ImageServer : public QTcpServer
 {
@@ -14,12 +14,17 @@ public:
 signals:
     void imageRecived(QImage image);
     void startReciving();
+    void receptionFailed();
 
-public slots:
-    void reciveImage(QByteArray image);
+private slots:
+    void readData();
 
 protected:
     void incomingConnection(int handle);
+
+private:
+    QTcpSocket *_activeConnection;
+    int _blockSize;
 
 };
 

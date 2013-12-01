@@ -1,27 +1,15 @@
-QT += core quick
+QT += core quick network
 
-# Add more folders to ship with the application, here
-folder_01.source = qml/MultimediaVisualizer
-folder_01.target = qml
-DEPLOYMENTFOLDERS = folder_01
-
-# If your application uses the Qt Mobility libraries, uncomment the following
-# lines and add the respective components to the MOBILITY variable.
-# CONFIG += mobility
-# MOBILITY +=
-
-# Installation path
-# target.path =
+TARGET = MultimediaViasualizer
+TEMPLATE = app
 
 include(QBonjourServer/bonjourserver.pri)
 
 SOURCES += main.cpp \
-    serverthread.cpp \
     imageserver.cpp \
     imagereciver.cpp
 
 HEADERS += \
-    serverthread.h \
     imageserver.h \
     imagereciver.h
 
